@@ -13,11 +13,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
 
-
-
-# Send email with the screenshot using Django email code
 def send_email():
-    # Configure email details
     subject = 'Python (Selenium) Assignment - Ashish Singh'
     email_from = 'ashishzoom1991@gmail.com'
     email_to = ['tech@themedius.ai']
@@ -33,12 +29,21 @@ def send_email():
 
     msg.attach(MIMEText(email_body, 'plain'))
 
-    # Open the screenshot file
-    with open('FORM SUBMITTED.jpg') as f:
-        # Attach the screenshot to the email
+    with open('FORM SUBMITTED.jpg', 'rb') as f:
         img = MIMEImage(f.read())
         img.add_header('Content-Disposition', 'attachment', filename='FORM SUBMITTED.jpg')
         msg.attach(img)
+     
+    with open('APPROACH.txt', 'r') as f:
+        txt1 = MIMEText(f.read())
+        txt1.add_header('Content-Disposition', 'attachment', filename='APPROACH.txt')
+        msg.attach(txt1)
+
+   
+    with open('CODES.txt', 'r') as f:
+        txt2 = MIMEText(f.read())
+        txt2.add_header('Content-Disposition', 'attachment', filename='CODES.txt')
+        msg.attach(txt2)
 
     smtp_server = 'smtp.gmail.com'
     smtp_port = 587
