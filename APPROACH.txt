@@ -1,0 +1,15 @@
+Approach:
+
+1. Import the necessary modules: selenium, time, smtplib, and EmailMessage from email.message.
+2. Set up the Selenium WebDriver by providing the path to the ChromeDriver executable and opening the Google form URL.
+3. Use Selenium to locate and fill the form fields with the desired values (name and email in this case).
+4. Submit the form by clicking the submit button.
+5. Wait for the confirmation page to load by using a delay (in this example, 2 seconds).
+6. Use Selenium to take a screenshot of the confirmation page and save it as a PNG file.
+7. Close the browser.
+8. Create an EmailMessage object and set the subject, sender, recipients, and content of the email.
+9. Attach the screenshot file to the email.
+10. Connect to the SMTP server using the provided SMTP server address and port number.
+11. Authenticate with the email address and password.
+12. Send the email with the attached screenshot.
+
